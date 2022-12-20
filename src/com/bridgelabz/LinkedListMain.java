@@ -8,6 +8,7 @@ public class LinkedListMain {
             linkedList1.append(56);
             linkedList1.append(70);
             linkedList1.searchAndInsert(30, 56);
+            linkedList1.pop();
         }
 }
 

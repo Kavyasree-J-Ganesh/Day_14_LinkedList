@@ -1,10 +1,21 @@
 package com.bridgelabz;
 
+
 public class LinkedList<T> {
     Node<T> head;
     Node<T> tail;
 
-    public void searchAndInsert(T key, T search){
+    public void pop(){
+        if(head != null){
+            Node ptr = head;
+            head = head.next;
+            System.gc();
+        }
+
+        this.printLinkedList();
+    }
+
+    public void searchAndInsert(T key, T search){      // search and insert  UC4
         Node ptr = head;
         Node<T> newNode = new Node(key);
         if(head == null){
@@ -32,7 +43,7 @@ public class LinkedList<T> {
             tail.next = newNode;
             tail = newNode;
         }
-        printLinkedList();
+        this.printLinkedList();
     }
 
     public void prePend(T key) {         // prepending    UC2
@@ -44,7 +55,7 @@ public class LinkedList<T> {
             newNode.next = head;
             head = newNode;
         }
-        printLinkedList();
+        this.printLinkedList();
     }
 
 
