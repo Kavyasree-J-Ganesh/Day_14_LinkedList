@@ -1,19 +1,35 @@
 package com.bridgelabz;
 
-
 public class LinkedList<T> {
     Node<T> head;
     Node<T> tail;
 
-    public void pop(){
+    public void pop(){                        // delete first element UC5
         if(head != null){
             Node ptr = head;
             head = head.next;
             System.gc();
         }
-
         this.printLinkedList();
     }
+
+    public void popLast(){
+        Node ptr = head;
+        Node prev = head;
+        while(ptr.next != null){
+           prev = ptr;
+           ptr = ptr.next;
+        }
+        if(ptr != prev){
+            prev.next = null;
+            tail = prev;
+        } else{
+            tail = null;
+            head = null;
+        }
+        printLinkedList();
+    }
+
 
     public void searchAndInsert(T key, T search){      // search and insert  UC4
         Node ptr = head;
@@ -25,15 +41,14 @@ public class LinkedList<T> {
             while (ptr.key != search && ptr.next != null){
                 ptr = ptr.next;
             }
-
             newNode.next = ptr.next;
             ptr.next = newNode;
-
         }
         printLinkedList();
     }
 
-    public void append(T key){         // appending  UC3
+
+    public void append(T key){                       // appending  UC3
         Node ptr = head;
         Node<T> newNode = new Node(key);
         if(head == null){
@@ -46,7 +61,8 @@ public class LinkedList<T> {
         this.printLinkedList();
     }
 
-    public void prePend(T key) {         // prepending    UC2
+
+    public void prePend(T key) {                   // prepending    UC2
         Node<T> newNode = new Node(key);
         if(head == null){
             head = newNode;
@@ -59,7 +75,7 @@ public class LinkedList<T> {
     }
 
 
-    public void printLinkedList(){
+    public void printLinkedList(){              // UC1
         System.out.println("Linked list after operation is");
         Node ptr = head;   // ptr = pointer
 
