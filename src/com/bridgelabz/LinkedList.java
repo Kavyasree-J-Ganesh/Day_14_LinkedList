@@ -31,6 +31,19 @@ public class LinkedList<T> {
     }
 
 
+    public void findNode(T serach){
+        Node ptr = head;
+        while(ptr!=null){
+            if(ptr.key == serach){
+                System.out.println("Element" + serach + " is present in linked list");
+                return;
+            }
+            ptr = ptr.next;
+        }
+
+        System.out.println("Element" + serach + " is not present in linked list");
+    }
+
     public void searchAndInsert(T key, T search){      // search and insert  UC4
         Node ptr = head;
         Node<T> newNode = new Node(key);
@@ -83,5 +96,7 @@ public class LinkedList<T> {
             System.out.print(ptr.key + " ");
             ptr = ptr.next;
         }
+
+        System.out.println("");
     }
 }
