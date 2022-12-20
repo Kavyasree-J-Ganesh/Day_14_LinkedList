@@ -4,21 +4,37 @@ public class LinkedList<T> {
     Node<T> head;
     Node<T> tail;
 
-    public void pop(){                        // delete first element UC5
-        if(head != null){
-            Node ptr = head;
-            head = head.next;
-            System.gc();
+    public void size(){         // size of the linkedlist   UC9
+        int size = 0;
+        Node ptr = head;
+        while(ptr != null){
+            size++;
+            ptr = ptr.next;
         }
-        this.printLinkedList();
+        System.out.println("Link list size is " + 3);
     }
 
-    public void popLast(){
+
+    public void findNode(T search){      // find node with value 30  UC7
+        Node ptr = head;
+        while(ptr!=null){
+            if(ptr.key == search){
+                System.out.println("Element" + search + " is present in linked list");
+                return;
+            }
+            ptr = ptr.next;
+        }
+        System.out.println("Element" + search + " is not present in linked list");
+    }
+
+
+
+    public void popLast(){       // delete the last element  UC6
         Node ptr = head;
         Node prev = head;
         while(ptr.next != null){
-           prev = ptr;
-           ptr = ptr.next;
+            prev = ptr;
+            ptr = ptr.next;
         }
         if(ptr != prev){
             prev.next = null;
@@ -31,16 +47,13 @@ public class LinkedList<T> {
     }
 
 
-    public void findNode(T serach){
-        Node ptr = head;
-        while(ptr!=null){
-            if(ptr.key == serach){
-                System.out.println("Element" + serach + " is present in linked list");
-                return;
-            }
-            ptr = ptr.next;
+    public void pop(){                        // delete first element UC5
+        if(head != null){
+            Node ptr = head;
+            head = head.next;
+            System.gc();
         }
-        System.out.println("Element" + serach + " is not present in linked list");
+        this.printLinkedList();
     }
 
     
@@ -58,6 +71,22 @@ public class LinkedList<T> {
             ptr.next = newNode;
         }
         printLinkedList();
+    }
+
+    public void searchAndDelete(T search){      // search and insert  UC4
+        Node ptr = head;
+        Node prev = ptr;
+        while(ptr!=null){
+            if(ptr.key == search) {
+                prev.next = ptr.next;
+                ptr.next = null;
+                System.gc();
+                return;
+            }
+            prev = ptr;
+            ptr=ptr.next;
+        }
+        System.out.println("Element not found");
     }
 
 

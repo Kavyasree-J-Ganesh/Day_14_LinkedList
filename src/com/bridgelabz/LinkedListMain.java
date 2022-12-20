@@ -11,6 +11,9 @@ public class LinkedListMain {
             linkedList1.findNode(30);
             linkedList1.findNode(100);
             linkedList1.searchAndInsert(40, 30);
+            linkedList1.searchAndDelete(40);
+            linkedList1.printLinkedList();
+            linkedList1.size();
         }
 }
 
