@@ -40,10 +40,10 @@ public class LinkedList<T> {
             }
             ptr = ptr.next;
         }
-
         System.out.println("Element" + serach + " is not present in linked list");
     }
 
+    
     public void searchAndInsert(T key, T search){      // search and insert  UC4
         Node ptr = head;
         Node<T> newNode = new Node(key);

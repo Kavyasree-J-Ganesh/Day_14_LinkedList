@@ -10,6 +10,8 @@ public class LinkedListMain {
             linkedList1.searchAndInsert(30, 56);
             linkedList1.findNode(30);
             linkedList1.findNode(100);
+            linkedList1.searchAndInsert(40, 30);
+
         }
 }
 
