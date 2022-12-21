@@ -4,7 +4,7 @@ public class LinkedList<T> {
     Node<T> head;
     Node<T> tail;
 
-    public void size(){         // size of the linkedlist   UC9
+    public void size(){         // size of the linkedList   UC9
         int size = 0;
         Node ptr = head;
         while(ptr != null){
@@ -15,7 +15,13 @@ public class LinkedList<T> {
     }
 
 
+    //  Ability to insert 40 after 30 to the Linked List sequence of 56->30->70      UC8
+    // its same as UC4 bcz here we need to insert 40 after 30.
+    // here key=40  and search=30
+
+
     public void findNode(T search){      // find node with value 30  UC7
+
         Node ptr = head;
         while(ptr!=null){
             if(ptr.key == search){
@@ -57,7 +63,7 @@ public class LinkedList<T> {
     }
 
     
-    public void searchAndInsert(T key, T search){      // search and insert  UC4
+    public void searchAndInsert(T key, T search){      // search and insert  UC5
         Node ptr = head;
         Node<T> newNode = new Node(key);
         if(head == null){
@@ -122,7 +128,11 @@ public class LinkedList<T> {
         Node ptr = head;   // ptr = pointer
 
         while(ptr != null){
-            System.out.print(ptr.key + " ");
+            if(ptr.next !=null){
+                System.out.print(ptr.key + "->");
+            } else{
+                System.out.print(ptr.key);
+            }
             ptr = ptr.next;
         }
 
